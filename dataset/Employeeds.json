@@ -1,0 +1,116 @@
+{
+	"name": "Employeeds",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "ID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "BECODE",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ACTDATE",
+				"type": "date"
+			},
+			{
+				"name": "LOGPLAN",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "LOGACTUAL",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "LOGACHIV",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "LOGLOSS",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "LOGLOSSREASON",
+				"type": "nvarchar"
+			},
+			{
+				"name": "EXTRATRANS",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "MISCOMP",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "INVFG",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "FUPINVFG",
+				"type": "nvarchar"
+			},
+			{
+				"name": "NMMAT",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "FUPNMI",
+				"type": "nvarchar"
+			},
+			{
+				"name": "REMARK",
+				"type": "nvarchar"
+			},
+			{
+				"name": "DELFLAG",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "CUSRID",
+				"type": "nchar"
+			},
+			{
+				"name": "CDATE",
+				"type": "date"
+			},
+			{
+				"name": "MUSRID",
+				"type": "nchar"
+			},
+			{
+				"name": "MDATE",
+				"type": "date"
+			},
+			{
+				"name": "DUSRID",
+				"type": "nchar"
+			},
+			{
+				"name": "DDATE",
+				"type": "date"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "ActLogistic"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

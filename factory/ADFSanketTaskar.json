@@ -1,0 +1,9 @@
+{
+	"name": "ADFSanketTaskar",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "90304211-8a9f-4e53-b200-795f570c26c7",
+		"tenantId": "d420b80d-bc1a-429d-b6c6-587896c20153"
+	}
+}
