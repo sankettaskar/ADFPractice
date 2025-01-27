@@ -1,0 +1,57 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "ADFSanketTaskar"
+		},
+		"AzureBlobStorage_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabase_password": {
+			"value": ""
+		},
+		"AzureSqlDatabaselinkedservice_password": {
+			"value": ""
+		},
+		"LinkedService_StorageDemoSanket_connectionString": {
+			"value": ""
+		},
+		"ls_TestDB_password": {
+			"value": ""
+		},
+		"AzureSqlDatabase_properties_typeProperties_server": {
+			"value": "DESKTOP-5JFT98B\\SQLEXPRESS"
+		},
+		"AzureSqlDatabase_properties_typeProperties_database": {
+			"value": "OMS_SAI"
+		},
+		"AzureSqlDatabase_properties_typeProperties_userName": {
+			"value": "sa"
+		},
+		"AzureSqlDatabaselinkedservice_properties_typeProperties_server": {
+			"value": "sql555769.database.windows.net"
+		},
+		"AzureSqlDatabaselinkedservice_properties_typeProperties_database": {
+			"value": "DBTest"
+		},
+		"AzureSqlDatabaselinkedservice_properties_typeProperties_userName": {
+			"value": "Testuser"
+		},
+		"ls_TestDB_properties_typeProperties_server": {
+			"value": "DESKTOP-5JFT98B\\SQLEXPRESS"
+		},
+		"ls_TestDB_properties_typeProperties_database": {
+			"value": "TestDB"
+		},
+		"ls_TestDB_properties_typeProperties_userName": {
+			"value": "sa"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

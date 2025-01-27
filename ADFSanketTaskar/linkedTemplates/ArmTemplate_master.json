@@ -1,0 +1,160 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "ADFSanketTaskar"
+		},
+		"AzureBlobStorage_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage'"
+		},
+		"AzureSqlDatabase_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzureSqlDatabase'"
+		},
+		"AzureSqlDatabaselinkedservice_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzureSqlDatabaselinkedservice'"
+		},
+		"LinkedService_StorageDemoSanket_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LinkedService_StorageDemoSanket'"
+		},
+		"ls_TestDB_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ls_TestDB'"
+		},
+		"AzureSqlDatabase_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "DESKTOP-5JFT98B\\SQLEXPRESS"
+		},
+		"AzureSqlDatabase_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "OMS_SAI"
+		},
+		"AzureSqlDatabase_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sa"
+		},
+		"AzureSqlDatabaselinkedservice_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "sql555769.database.windows.net"
+		},
+		"AzureSqlDatabaselinkedservice_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "DBTest"
+		},
+		"AzureSqlDatabaselinkedservice_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Testuser"
+		},
+		"ls_TestDB_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "DESKTOP-5JFT98B\\SQLEXPRESS"
+		},
+		"ls_TestDB_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "TestDB"
+		},
+		"ls_TestDB_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sa"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "ADFSanketTaskar_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureBlobStorage_connectionString": {
+						"value": "[parameters('AzureBlobStorage_connectionString')]"
+					},
+					"AzureSqlDatabaselinkedservice_password": {
+						"value": "[parameters('AzureSqlDatabaselinkedservice_password')]"
+					},
+					"LinkedService_StorageDemoSanket_connectionString": {
+						"value": "[parameters('LinkedService_StorageDemoSanket_connectionString')]"
+					},
+					"AzureSqlDatabase_password": {
+						"value": "[parameters('AzureSqlDatabase_password')]"
+					},
+					"ls_TestDB_password": {
+						"value": "[parameters('ls_TestDB_password')]"
+					},
+					"AzureSqlDatabaselinkedservice_properties_typeProperties_server": {
+						"value": "[parameters('AzureSqlDatabaselinkedservice_properties_typeProperties_server')]"
+					},
+					"AzureSqlDatabaselinkedservice_properties_typeProperties_database": {
+						"value": "[parameters('AzureSqlDatabaselinkedservice_properties_typeProperties_database')]"
+					},
+					"AzureSqlDatabaselinkedservice_properties_typeProperties_userName": {
+						"value": "[parameters('AzureSqlDatabaselinkedservice_properties_typeProperties_userName')]"
+					},
+					"AzureSqlDatabase_properties_typeProperties_server": {
+						"value": "[parameters('AzureSqlDatabase_properties_typeProperties_server')]"
+					},
+					"AzureSqlDatabase_properties_typeProperties_database": {
+						"value": "[parameters('AzureSqlDatabase_properties_typeProperties_database')]"
+					},
+					"AzureSqlDatabase_properties_typeProperties_userName": {
+						"value": "[parameters('AzureSqlDatabase_properties_typeProperties_userName')]"
+					},
+					"ls_TestDB_properties_typeProperties_server": {
+						"value": "[parameters('ls_TestDB_properties_typeProperties_server')]"
+					},
+					"ls_TestDB_properties_typeProperties_database": {
+						"value": "[parameters('ls_TestDB_properties_typeProperties_database')]"
+					},
+					"ls_TestDB_properties_typeProperties_userName": {
+						"value": "[parameters('ls_TestDB_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "ADFSanketTaskar_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'ADFSanketTaskar_ArmTemplate_0')]"
+			]
+		}
+	]
+}
