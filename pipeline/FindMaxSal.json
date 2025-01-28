@@ -21,7 +21,7 @@
 				"typeProperties": {
 					"variableName": "MaxSalary",
 					"value": {
-						"value": "@activity('Data flow1').output.runStatus.output.sink1.value[0].Maxsal",
+						"value": "@string(activity('Data flow1').output.runStatus.output.sink1.value[0].Maxsal)",
 						"type": "Expression"
 					}
 				}
