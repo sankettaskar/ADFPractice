@@ -3,30 +3,6 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Set variable1",
-				"type": "SetVariable",
-				"dependsOn": [
-					{
-						"activity": "Data flow1",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"policy": {
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"variableName": "MaxSalary",
-					"value": {
-						"value": "@string(activity('Data flow1').output.runStatus.output.sink1.value[0].Maxsal)",
-						"type": "Expression"
-					}
-				}
-			},
-			{
 				"name": "Data flow1",
 				"type": "ExecuteDataFlow",
 				"dependsOn": [],
@@ -50,6 +26,30 @@
 					"traceLevel": "None",
 					"cacheSinks": {
 						"firstRowOnly": true
+					}
+				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Data flow1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "MaxSalary",
+					"value": {
+						"value": "@string(activity('Data flow1').output.runStatus.output.sink1.value[0].MaxSal)",
+						"type": "Expression"
 					}
 				}
 			}

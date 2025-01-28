@@ -14,11 +14,7 @@
 			],
 			"sinks": [
 				{
-					"name": "MaxSalary",
-					"rejectedDataLinkedService": {
-						"referenceName": "AzureBlobStorage",
-						"type": "LinkedServiceReference"
-					}
+					"name": "sink1"
 				}
 			],
 			"transformations": [
@@ -43,7 +39,7 @@
 				"     store: 'cache',",
 				"     format: 'inline',",
 				"     output: true,",
-				"     saveOrder: 1) ~> MaxSalary"
+				"     saveOrder: 1) ~> sink1"
 			]
 		}
 	}
