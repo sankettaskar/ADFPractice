@@ -19,7 +19,15 @@
 					"name": "newempsource"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "Outputfolder",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
 			"transformations": [
 				{
 					"name": "union1"
@@ -47,7 +55,19 @@
 				"empsource, newempsource union(byName: true)~> union1",
 				"union1 aggregate(groupBy(id),",
 				"     each(match(name !='id'), $$ = first($$))) ~> Removeduplicaterows",
-				"Removeduplicaterows sort(asc(id, true)) ~> sort1"
+				"Removeduplicaterows sort(asc(id, true)) ~> sort1",
+				"sort1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     partitionFileNames:['Allconsolidatedfile.csv'],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     mapColumn(",
+				"          Empid = id,",
+				"          Empname = name,",
+				"          gender,",
+				"          salary",
+				"     ),",
+				"     partitionBy('hash', 1)) ~> sink1"
 			]
 		}
 	}
