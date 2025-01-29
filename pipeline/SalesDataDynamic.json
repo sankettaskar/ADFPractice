@@ -68,6 +68,16 @@
 									"storeSettings": {
 										"type": "AzureBlobStorageReadSettings",
 										"recursive": true,
+										"modifiedDatetimeStart": {
+											"value": "@addDays(utcNow(),-2)",
+											"type": "Expression"
+										},
+										"modifiedDatetimeEnd": {
+											"value": "@utcNow()",
+											"type": "Expression"
+										},
+										"wildcardFolderPath": "Sales Data Input",
+										"wildcardFileName": "*.csv",
 										"enablePartitionDiscovery": false
 									},
 									"formatSettings": {
