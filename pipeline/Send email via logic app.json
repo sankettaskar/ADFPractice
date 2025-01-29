@@ -1,5 +1,5 @@
 {
-	"name": "pipeline9",
+	"name": "Send email via logic app",
 	"properties": {
 		"activities": [
 			{
