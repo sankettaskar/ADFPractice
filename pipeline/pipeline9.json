@@ -82,7 +82,7 @@
 				"typeProperties": {
 					"method": "POST",
 					"headers": {
-						"Content-Type": "application\\json"
+						"Content-Type": "application/json"
 					},
 					"url": "https://prod-18.northcentralus.logic.azure.com:443/workflows/91e92901abb9403fa3b7754d9c303c05/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Hn6INv1NElC_eflCYlY9aHv8lOZHdbjCFENQ2VrDcR0",
 					"body": {
