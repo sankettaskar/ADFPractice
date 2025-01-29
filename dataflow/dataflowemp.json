@@ -26,6 +26,9 @@
 				},
 				{
 					"name": "Removeduplicaterows"
+				},
+				{
+					"name": "sort1"
 				}
 			],
 			"scriptLines": [
@@ -43,7 +46,8 @@
 				"     ignoreNoFilesFound: false) ~> newempsource",
 				"empsource, newempsource union(byName: true)~> union1",
 				"union1 aggregate(groupBy(id),",
-				"     each(match(name !='id'), $$ = first($$))) ~> Removeduplicaterows"
+				"     each(match(name !='id'), $$ = first($$))) ~> Removeduplicaterows",
+				"Removeduplicaterows sort(asc(id, true)) ~> sort1"
 			]
 		}
 	}
