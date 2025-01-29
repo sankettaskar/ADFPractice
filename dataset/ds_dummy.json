@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "dummy.csv",
+				"fileName": "dummy.txt",
 				"folderPath": "input",
 				"container": "dev"
 			},
