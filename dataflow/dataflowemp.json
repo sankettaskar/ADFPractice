@@ -23,6 +23,9 @@
 			"transformations": [
 				{
 					"name": "union1"
+				},
+				{
+					"name": "Removeduplicaterows"
 				}
 			],
 			"scriptLines": [
@@ -38,7 +41,9 @@
 				"source(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> newempsource",
-				"empsource, newempsource union(byName: true)~> union1"
+				"empsource, newempsource union(byName: true)~> union1",
+				"union1 aggregate(groupBy(id),",
+				"     each(match(name !='id'), $$ = first($$))) ~> Removeduplicaterows"
 			]
 		}
 	}
