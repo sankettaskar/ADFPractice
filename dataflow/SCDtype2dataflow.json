@@ -79,7 +79,7 @@
 				"     multiple: false,",
 				"     pickup: 'any',",
 				"     broadcast: 'auto')~> lookup1",
-				"lookup1 filter(!isNull(empid)) ~> Existingrow",
+				"lookup1 filter(!isNull(SQL_empid)) ~> Existingrow",
 				"addingisActive sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
