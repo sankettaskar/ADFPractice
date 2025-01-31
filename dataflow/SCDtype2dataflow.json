@@ -34,6 +34,12 @@
 				},
 				{
 					"name": "select1"
+				},
+				{
+					"name": "lookup1"
+				},
+				{
+					"name": "Existingrow"
 				}
 			],
 			"scriptLines": [
@@ -69,6 +75,11 @@
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> select1",
+				"empfile, select1 lookup(empid == SQL_empid,",
+				"     multiple: false,",
+				"     pickup: 'any',",
+				"     broadcast: 'auto')~> lookup1",
+				"lookup1 filter(!isNull(empid)) ~> Existingrow",
 				"addingisActive sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
